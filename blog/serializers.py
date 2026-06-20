@@ -7,7 +7,6 @@ class UserSerializer(serializers.ModelSerializer):
         model = User
         fields = ['id', 'username', 'email']
 
-
 class PostSerializer(serializers.ModelSerializer):
     author = UserSerializer(read_only=True)  
 
@@ -15,7 +14,6 @@ class PostSerializer(serializers.ModelSerializer):
         model = Post
         fields = ['id', 'author', 'title', 'body', 'created_at', 'updated_at', 'is_published']
         read_only_fields = ['author', 'created_at', 'updated_at']
-
 
 class CommentSerializer(serializers.ModelSerializer):
     author = UserSerializer(read_only=True)
